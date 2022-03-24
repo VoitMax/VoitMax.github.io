@@ -9,6 +9,7 @@ header {
 
 .user{
     border-radius: 50%;
+    margin-top: -50px;
 }
 main{
     background-color: white;
