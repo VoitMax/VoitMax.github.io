@@ -9,6 +9,13 @@ body {
     font-family: "Open Sans", sans-serif;
 }
 
+main p{
+    font-family: "Roboto", sans-serif;
+}
+
+h1, h2, h3, h4{
+    font-family: "Montserrat", sans-serif;
+}
 header {
     text-align: center;
 }
