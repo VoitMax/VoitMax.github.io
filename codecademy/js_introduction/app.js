@@ -1,6 +1,6 @@
 //Introduction to Javascript 
 
-/* Comments etc.*/
+/* Console and Comments etc. first Lections*/
 
 //Data Types
 console.log("JavaScript")
