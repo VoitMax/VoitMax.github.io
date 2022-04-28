@@ -26,12 +26,12 @@ let coords = [-40.921, 172.9609];
 
 
 let popup = `
-    <h3>${ETAPPEN[0].titel} (Etappe ${ETAPPEN[0].nr})</h3>
+    <h3>${ETAPPEN[9].titel} (Etappe ${ETAPPEN[9].nr})</h3>
     <ul>
-        <li>geogr. Länge: ${ETAPPEN[0].lng}</li>
-        <li>geogr. Breite: ${ETAPPEN[0].lat}</li>
-        <li><a href="${ETAPPEN[0].wikipedia}">Link zur Wikipediaseite</a></li>
-        <li><a href="${ETAPPEN[0].github}">Link zur Etappenseite</a></li>
+        <li>geogr. Länge: ${ETAPPEN[9].lng}</li>
+        <li>geogr. Breite: ${ETAPPEN[9].lat}</li>
+        <li><a href="${ETAPPEN[9].wikipedia}">Link zur Wikipediaseite</a></li>
+        <li><a href="${ETAPPEN[9].github}">Link zur Etappenseite</a></li>
     </ul>
 `;
 
@@ -40,10 +40,6 @@ let map = L.map('map').setView(coords, zoom);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-
-L.marker([lat, lng]).addTo(map)
-    .bindPopup(popup)
-    .openPopup();
 
 
 for (let etappe of ETAPPEN) {
@@ -54,8 +50,9 @@ for (let etappe of ETAPPEN) {
         <li>geogr. Breite: ${etappe.lat}</li>
         <li><a href="${etappe.wikipedia}">Link zur Wikipediaseite</a></li>
         <li><a href="https://${etappe.github}.github.io/nz/">Link zur Etappenseite</a></li>
-    </ul>
-    `;
+    </ul>`;
+
+
     //console.log(etappe);
     L.marker([etappe.lat, etappe.lng]).addTo(map).bindPopup(popup);
 
@@ -73,7 +70,6 @@ for (let hut of HUTS) {
         <p>${hut.info}</p>
         <img src="${hut.image}" alt="Vorschaubild">
         <hr>
-        <a href="${hut.link}" target="Neuseeland">Link zur Hütte</a>
-    `;
+        <a href="${hut.link}" target="Neuseeland">Link zur Hütte</a>`;
     L.circleMarker([hut.lat, hut.lng]).addTo(map).bindPopup(popup);
 }
