@@ -1,23 +1,19 @@
-/* Stile für die Neuseelandreise*/
+/* Stile für die Neuseelandreise */
 
-/*Google Fonds einbinden*/
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans:ital@0;1&family=Roboto:wght@300&display=swap");
-
+/* Google Fonts laden */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans:ital@0;1&family=Roboto:wght@300&display=swap');
 
 body {
     background-color: #eeeeee;
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 main p {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4 {
-    font-family: "Montserrat", sans-serif;
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
 }
 
 header {
@@ -47,7 +43,6 @@ main {
 
 article {
     padding: 1em;
-
 }
 
 article p {
@@ -79,5 +74,15 @@ footer .next {
 .shadow {
     box-shadow:
         0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.etappenLink {
+    background: white;
+    border: 1px solid black;
+    padding: 0.5em;
+    width: 2em;
+    text-align: center;
+    margin-top: 0.5em;
+    display: inline-block;
 }
