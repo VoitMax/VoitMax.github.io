@@ -35,6 +35,35 @@ let popup = `
     </ul>
 `;
 
+let startLayer = L.tileLayer.provider("OpenStreetMap.Mapnik");
+
+let map = L.map("map",{
+    center: [lat, lng],
+    zoom: 11,
+    layers: [
+        startLayer
+    ]
+});
+
+let layerControl = L.control.layers({
+    "OpenStreetMap.Mapnik": startLayer,
+    "Esri.WorldTopoMap": L.tileLayer.provider("Esri.WorldTopoMap"),
+    "Esri.WorldImagery": L.tileLayer.provider("Esri.WorldImagery"),
+}).addTo(map);
+
+// Maßstab hinzugefügt
+L.control.scale({
+    imperial: false,
+}).addTo(map);
+
+// Fullscreen hinzugefügt
+L.control.fullscreen().addTo(map);
+
+// Minimap hinzugefügt
+let miniMap = new L.Control.MiniMap(
+    L.tileLayer.provider("OpenStreetMap.Mapnik")
+).addTo(map);
+
 /*
 let map = L.map('map').setView(coords, zoom);
 
@@ -89,20 +118,4 @@ for (let hut of HUTS) {
     }).addTo(map).bindPopup(popup);
 }
 
-let startLayer = L.tileLayer.provider("OpenStreetMap.Mapnik");
-
-
-let map = L.map("map",{
-    center: [lat, lng],
-    zoom: 12,
-    layers: [
-        startLayer
-    ]
-});
-
-let layerControl = L.control.layers({
-    "OpenStreetMap.Mapnik": startLayer,
-    "Esri.WorldTopoMap": L.tileLayer.provider("Esri.WorldTopoMap"),
-    "Thunderforest.OpenCycleMap": L.tileLayer.provider("Thunderforest.OpenCycleMap"),
-}).addTo(map)
     
