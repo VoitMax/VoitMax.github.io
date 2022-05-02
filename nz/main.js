@@ -35,12 +35,13 @@ let popup = `
     </ul>
 `;
 
+/*
 let map = L.map('map').setView(coords, zoom);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-
+*/
 
 for (let etappe of ETAPPEN) {
     let popup = `
@@ -87,3 +88,21 @@ for (let hut of HUTS) {
         color: statusColor
     }).addTo(map).bindPopup(popup);
 }
+
+let startLayer = L.tileLayer.provider("OpenStreetMap.Mapnik");
+
+
+let map = L.map("map",{
+    center: [lat, lng],
+    zoom: 12,
+    layers: [
+        startLayer
+    ]
+});
+
+let layerControl = L.control.layers({
+    "OpenStreetMap.Mapnik": startLayer,
+    "Esri.WorldTopoMap": L.tileLayer.provider("Esri.WorldTopoMap"),
+    "Thunderforest.OpenCycleMap": L.tileLayer.provider("Thunderforest.OpenCycleMap"),
+}).addTo(map)
+    
